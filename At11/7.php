@@ -12,8 +12,16 @@
         array(1,9),
         array(1,10),
     );
-    $maior=max($matriz);
+    $maior=0;
     $Maior1= $matriz[0][0];
+
+    foreach ($matriz as $a) {
+        foreach($a as $key=>$b){
+            if ($b>$maior) {
+                $maior=$b;
+            }
+        }
+    }
     for ($i=0; $i<10; $i++) {
         for ($j=0; $j<2; $j++) {
             if($Maior1 < $matriz[$i][$j] && $matriz[$i][$j]<$maior){
