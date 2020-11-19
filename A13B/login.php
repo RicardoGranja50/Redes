@@ -1,0 +1,10 @@
+<?php
+$login="aluno";
+$password="124";
+if($login=="aluno" && $password=="123")
+    {
+        header("Location: main.php");
+    }
+else{
+    header("Location: erro.php");
+}
