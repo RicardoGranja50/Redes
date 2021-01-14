@@ -2,7 +2,7 @@
     if($_SERVER['REQUEST_METHOD']=="GET"){
         if(!isset($_GET['filme']) || !is_numeric($_GET['filme'])){
 
-            echo '<script>alert("Erro ao abirir livro");</script>';
+            echo '<script>alert("Erro ao abirir filme");</script>';
             echo 'Aguarde um momento.A reencaminhar pagina';
             header("refresh:5; url=index.php");
             exit();
@@ -22,7 +22,7 @@
                 $stm->bind_param('i',$idFilme);
                 $stm->execute();
                 $res=$stm->get_result();
-                $livro=$res->fetch_assoc();
+                $filme=$res->fetch_assoc();
                 $stm->close();
             }
             else{
@@ -43,28 +43,31 @@
     <title>Detalhes</title>
     <body>
     <h1>Detalhes do filme</h1>
+
     <?php
-        if(isset($livro)){
+        if(isset($filme)){
             echo '<br><br>';
             echo "Filme: ";
-            echo $livro['titulo'];
+            echo $filme['titulo'];
             echo '<br><br>';
             echo "Sinopse: ";
-            echo $livro['sinopse'];
-            echo '<br><br>';
-            echo "Idioma: ";
-            echo $livro['idioma'];
-            echo '<br><br>';
-            echo "Data Lançamento: ";
-            echo $livro['data_lancamento'];
+            echo $filme['sinopse'];
             echo '<br><br>';
             echo "Quantidade: ";
-            echo $livro['quantidade'];
+            echo $filme['quantidade'];
             echo '<br><br>';
+            echo "Idioma: ";
+            echo $filme['idioma'];
+            echo '<br><br>';
+            echo "Data Lançamento: ";
+            echo $filme['data_lancamento'];
+            echo '<br><br>'; 
+            echo '<a href="filmes_edit.php?filme='.$filme['id_filme']. '">Editar</a>';
         }
         else{
             echo '<h2>Parece que o filme selecionado nao exite</h2>';
         }
+       
     ?>
     </body>
     </html>
