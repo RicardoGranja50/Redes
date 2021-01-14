@@ -62,7 +62,8 @@
             echo "Data Lançamento: ";
             echo $filme['data_lancamento'];
             echo '<br><br>'; 
-            echo '<a href="filmes_edit.php?filme='.$filme['id_filme']. '">Editar</a>';
+            echo '<a href="filmes_edit.php?filme='.$filme['id_filme']. '">Editar</a><br>';
+            echo '<a href="filmes_delete.php?filme='.$filme['id_filme']. '">Eliminar</a><br>';
         }
         else{
             echo '<h2>Parece que o filme selecionado nao exite</h2>';
