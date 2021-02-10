@@ -30,7 +30,7 @@
         <button> <a href="filmes_create.php">Adicionar</a></button>
         <?php
            if($_SESSION['login']== "correto" && isset($_SESSION['login'])){
-               echo"<p><a href='processa_logout.php'>Logout</a>------<a href='utilizadores.php'>Lista Utilizadores</a>";
+               echo"<p><a href='processa_logout.php'>Logout</a>------<a href='utilizadores.php'>Lista Utilizadores</a>------";
             }
             else{
                 echo" <p><a href='login.php'>Login</a>-----<a href='register.php'>Register</a></p>";

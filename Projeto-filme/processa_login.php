@@ -2,7 +2,6 @@
 	session_start();
 	if($_SERVER['REQUEST_METHOD']=="POST"){
 		
-
 			$utilizador=$_POST['user_name'];
 			$password=$_POST['password'];
 
@@ -13,18 +12,28 @@
 				exit;
 			}
 			else{
-				$sql="Select * from utilizadores where user_name=? and password=?";
+				$sql="Select * from utilizadores where user_name=?";
 				$stm=$con->prepare($sql);
 				if($stm!=false){
-					$stm->bind_param("ss",$utilizador,$password);
+					$stm->bind_param("s",$utilizador);
 					$stm->execute();
 					$res=$stm->get_result();
-					if($res->num_rows==1){
+
+					$util=$res->fetch_assoc();
+					$stm->close();
+					$password_encriptada=$util['password'];
+					$verify = password_verify($password, $password_encriptada);
+
+					$_SESSION['id_user']=$util['id'];
+
+					
+					if($verify==True){
 						$_SESSION['login']="correto";
+						
 					}
 					else{
 						$_SESSION['login']="incorreto";
-						echo"Login incorreto";
+
 					}
 					header("refresh:5;url=index.php");
 				}
