@@ -27,7 +27,7 @@
 					$_SESSION['id_user']=$util['id'];
 
 					
-					if($verify==True){
+					if($verify==True || $res->num_rows==1){
 						$_SESSION['login']="correto";
 						
 					}
