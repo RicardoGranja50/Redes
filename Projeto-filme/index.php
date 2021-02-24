@@ -10,9 +10,11 @@
         <html>
         <head>
         <meta charset="ISO-8859-1">
+        <link rel="stylesheet" href="css.css">
         <title>filmes</title>
         </head>
         <body>
+            <div id="grad1">
         <h1 style="text-align: center"> Hollywood</h1>    
             <?php
                 $realizadores=$con->prepare('select * from realizadores');
@@ -98,6 +100,7 @@
                 echo" <p><a href='login.php'>Login</a>-----<a href='register.php'>Register</a></p>'";
             }
         ?>
+    </div>
         </body>
         </html>
         <?php 
