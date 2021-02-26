@@ -7,8 +7,10 @@
 	<body>
 		<h1>Login</h1>
 		<form method="post" action="processa_login.php">
-			<label>Nome Utilizador</label><input type="text" name="user_name" required><br>
-			<label>Palavra-passe</label><input type="text" name="password" required><br>
+			<div class="container-fluid">
+				<label>Nome Utilizador</label><input type="text" name="user_name" required><br>
+				<label>Palavra-passe</label><input type="text" name="password" required><br>
+			<div>
 			<input type="submit" name="login"><br>
 		</form>
 	</body>
