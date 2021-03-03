@@ -26,14 +26,14 @@
     <div class="col-sm-4">
       <h2>Norte</h2>
       <?php  
-        $norte=$con->prepare('select * from escola where portugal like "norte"');
+        $norte=$con->prepare('select * from escola where escola like "norte"');
         $norte->execute();
         $n=$norte->get_result();
 
         while($resultado=$n->fetch_assoc()){
           echo"<br>";
           echo '<br><h4><a href="escola_show.php?escola='.$resultado['id_escola'].'">';
-          echo $resultado['escola'];
+          echo $resultado['nome'];
           echo'</a></h4>';    
         }
       ?>
@@ -41,14 +41,14 @@
     <div class="col-sm-4">
       <h2>Centro</h2>
       <?php  
-        $centro=$con->prepare('select * from escola where portugal like "centro"');
+        $centro=$con->prepare('select * from escola where escola like "centro"');
         $centro->execute();
         $c=$centro->get_result();
 
         while($ce=$c->fetch_assoc()){
           echo"<br>";
           echo '<br><h4><a href="escola_show.php?escola='.$ce['id_escola'].'">';
-          echo $ce['escola'];
+          echo $ce['nome'];
           echo'</a></h4>';    
         }
       ?>
@@ -56,20 +56,21 @@
     <div class="col-sm-4">
       <h2>Sul</h2>  
       <?php  
-        $sul=$con->prepare('select * from escola where portugal like "sul"');
+        $sul=$con->prepare('select * from escola where escola like "sul"');
         $sul->execute();
         $s=$sul->get_result();
 
         while($se=$s->fetch_assoc()){
           echo"<br>";
           echo '<br><h4><a href="escola_show.php?escola='.$se['id_escola'].'">';
-          echo $se['escola'];
+          echo $se['nome'];
           echo'</a></h4>';    
         }
       ?>      
     </div>
   </div>
-  
+  <br><br><br>
+   <button> <a href='escola_create.php'>Adicionar Escola</a></button>
 </div>
 
 </body>

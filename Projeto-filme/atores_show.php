@@ -20,7 +20,7 @@
                 echo 'Ocorreu um erro no acesso a base de dados <br>'.$con->connect_error;
                 exit();
             }
-            else{
+            elseif($a==0){
                 $sql='select * from atores where id_ator=?';
                 $stm=$con->prepare($sql);
                 if($stm!=false){

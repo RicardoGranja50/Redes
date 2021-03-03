@@ -7,7 +7,8 @@
                 header("refresh:5; url=index.php");
                 exit();
             }
-            $idAtor=$_GET['escola'];
+            $idEscola=$_GET['escola'];
+            
             $con=new mysqli("localhost","root","","conducao");
 
             if($con->connect_error!=0){
@@ -17,7 +18,9 @@
             }
             else{
                 $sql='select * from escola where id_escola=?';
+
                 $stm=$con->prepare($sql);
+
                 if($stm!=false){
                     $stm->bind_param('i',$idEscola);
                     $stm->execute();
@@ -50,28 +53,54 @@
 
 <div class="container">
   <div class="col-sm-12">
-    <h1>Informação acerca da escola <?php 
-      echo $escola['escola']?>
+    <h1>Informação acerca da escola
+      <?php 
+      echo $escola['nome'];
+      ?>
     </h1>
-    <p>Resize this responsive page to see the effect!</p> 
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h2>Escola</h2>
+      <br>
+      <?php 
+        echo "<h4>Nome: ".$escola['nome'];
+        echo"</h4>";
+        echo "<h4>Cidade: ".$escola['cidade'];
+        echo"</h4>";
+        echo "<h4>Rua: ".$escola['rua'];
+        echo"</h4>";
+      ?>
     </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <div class="col-sm-8">
+      <div class="row">
+        <h2>Aulas</h2>
+        <div class="col-sm-2">
+          <h5>Segunda</h5>
+        </div>
+        <div class="col-sm-2">
+          <h5>Terça</h5>
+        </div>
+        <div class="col-sm-2">
+          <h5>Quarta</h5>
+        </div>
+        <div class="col-sm-2">
+          <h5>Quinta</h5>
+        </div>
+        <div class="col-sm-1">
+          <h5>Sexta</h5>
+        </div>
+      </div>
+      <?php 
+       
+      ?>
     </div>
   </div>
+   <br><br><br>
+   <?php
+    echo '<a href="escola_edit.php?escola='.$escola['id_escola']. '">Editar Escola</a><br>';
+    echo '<a href="escola_delete.php?escola='.$escola['id_escola']. '">Eliminar Escola</a><br>';
+    ?>
 </div>
 
 </body>
