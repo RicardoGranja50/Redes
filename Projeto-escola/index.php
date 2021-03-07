@@ -16,9 +16,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 <body>
-
+  <?php
+   if(!empty($_SESSION['login'])){  
+      if($_SESSION['login']== "correto" || $_SESSION['login']== "admin" ){
+        echo"<a href='processa_logout.php'>Logout</a>";
+      }
+      else{
+        echo"<a href='login.php'>Login</a>";
+      }
+    }
+  ?>
 <div class="container">
   <div class="jumbotron">
+    
     <h1>Escolas de Condução em Portugal</h1>
     <p>Pesquisa rápida e eficaz</p> 
   </div>
@@ -28,7 +38,9 @@
       <?php  
         $norte=$con->prepare('select * from escola where escola like "norte"');
         $norte->execute();
+
         $n=$norte->get_result();
+        
 
         while($resultado=$n->fetch_assoc()){
           echo"<br>";
@@ -70,7 +82,13 @@
     </div>
   </div>
   <br><br><br>
-   <button> <a href='escola_create.php'>Adicionar Escola</a></button>
+  <?php
+      if(!empty($_SESSION['login'])){  
+        if($_SESSION['login']== "admin" ){
+          echo "<button> <a href='escola_create.php'>Adicionar Escola</a></button>";
+        }
+      }
+  ?>
 </div>
 
 </body>

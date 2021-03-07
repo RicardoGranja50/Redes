@@ -5,6 +5,8 @@
         $cidade="";
         $nome="";
         $rua="";
+
+
         $a=0;
         if($_POST['escola']=="norte" || $_POST['escola']=="centro"|| $_POST['escola']=="sul"){
 
