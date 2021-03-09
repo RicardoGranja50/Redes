@@ -16,15 +16,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
 <body>
-  <?php
-   if(!empty($_SESSION['login'])){  
+  <?php 
       if($_SESSION['login']== "correto" || $_SESSION['login']== "admin" ){
         echo"<a href='processa_logout.php'>Logout</a>";
-      }
-      else{
+      }  
+      elseif(is_null($_SESSION)){
         echo"<a href='login.php'>Login</a>";
       }
-    }
+      else{ 
+        echo"<a href='login.php'>Login</a>";
+     }
   ?>
 <div class="container">
   <div class="jumbotron">
