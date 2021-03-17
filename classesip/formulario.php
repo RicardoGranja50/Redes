@@ -6,7 +6,7 @@
 <body>
 	<h3>Classes IP</h3>
 	<h4>Digite o endereço IP que pretende verificar</h4>
-	<form action="processar_class">
+	<form action="processar_class.php">
 		<input type="text" name="a">
 		<input type="text" name="b">
 		<input type="text" name="c">

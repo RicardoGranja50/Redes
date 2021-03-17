@@ -1,5 +1,4 @@
 <?php 
-
 	$protocolo=$_GET['protocolo'];
 
 	if($protocolo=="dns"){
