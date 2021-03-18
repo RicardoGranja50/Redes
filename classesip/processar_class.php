@@ -74,8 +74,11 @@ elseif($c==0 && $d==0){
 elseif($d==0 && $d==255){
 	echo "IP Invalido";
 }
-else{
+elseif($a<255 && $b<255 && $c<255 && $d<255){
 	echo "IP publico";
+}
+else{
+	echo "IP invalido";
 }
 
 	
